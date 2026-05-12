@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>360 Leadership Diagnostic — Elevate 360 Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0D1B3F;--navy2:#1a2d5a;--gold:#BFA062;--gold-light:#D4B97A;--white:#FFFFFF;--gray-bg:#C4C4C4;--gray-card:#D8D8D8;--gray-border:#B0B0B0;--gray-light:#F4F4F4;--text-main:#0D1B3F;--text-muted:#4A5568}
+body{background:var(--gray-bg);font-family:'DM Sans',sans-serif;color:var(--text-main)}
+.screen{display:none}.screen.active{display:block}
+
+/* ─── LANDING PAGE ─── */
+.lp-nav{background:var(--navy);padding:16px 48px;display:flex;align-items:center;justify-content:space-between}
+.lp-brand{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--white);font-weight:500}
+.lp-nav-cta{background:var(--gold);color:var(--navy);border:none;border-radius:4px;padding:9px 20px;font-size:11px;font-weight:500;font-family:'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+.lp-nav-cta:hover{background:var(--gold-light)}
+
+.lp-hero{background:var(--navy);padding:80px 48px;text-align:center;position:relative}
+.lp-hero-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.lp-hero-h{font-family:'Playfair Display',serif;font-size:48px;font-weight:500;color:var(--white);line-height:1.15;max-width:640px;margin:0 auto 20px}
+.lp-hero-sub{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.75;max-width:520px;margin:0 auto 40px;font-weight:300}
+.lp-hero-rule{width:48px;height:1px;background:var(--gold);margin:0 auto 40px;opacity:0.6}
+.lp-price-block{display:inline-flex;align-items:center;gap:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(191,160,98,0.3);border-radius:8px;padding:16px 28px;margin-bottom:32px}
+.lp-price{font-family:'Playfair Display',serif;font-size:36px;color:var(--white);font-weight:500}
+.lp-price-note{font-size:12px;color:rgba(255,255,255,0.5);text-align:left;line-height:1.5}
+.lp-hero-cta{background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:16px 44px;font-size:14px;font-weight:500;font-family:'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;display:inline-block}
+.lp-hero-cta:hover{background:var(--gold-light)}
+.lp-hero-note{font-size:12px;color:rgba(255,255,255,0.4);margin-top:14px}
+
+/* What you get section */
+.lp-section{background:var(--white);padding:72px 48px}
+.lp-section-inner{max-width:760px;margin:0 auto}
+.lp-section-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.lp-section-h{font-family:'Playfair Display',serif;font-size:32px;color:var(--navy);font-weight:500;margin-bottom:12px;line-height:1.25}
+.lp-section-p{font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:40px;max-width:580px}
+.lp-rule{width:40px;height:2px;background:var(--gold);margin-bottom:40px}
+
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.feature-card{border:1px solid var(--gray-card);border-radius:8px;padding:24px}
+.fc-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);margin-bottom:10px;line-height:1}
+.fc-h{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:8px}
+.fc-p{font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* Dimensions */
+.lp-dims{background:var(--gray-bg);padding:72px 48px}
+.lp-dims-inner{max-width:760px;margin:0 auto}
+.dim-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:40px}
+.dim-card{background:var(--white);border-radius:8px;padding:24px}
+.dim-card-num{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.dim-card-h{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:10px;font-weight:500}
+.dim-card-p{font-size:12px;color:var(--text-muted);line-height:1.6}
+.dim-card-qs{font-size:11px;color:var(--navy);margin-top:12px;padding-top:12px;border-top:1px solid var(--gray-card);font-weight:500}
+
+/* Who it's for */
+.lp-who{background:var(--navy);padding:72px 48px}
+.lp-who-inner{max-width:760px;margin:0 auto}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.who-item{border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px 24px}
+.who-dash{color:var(--gold);margin-right:8px;font-weight:500}
+.who-text{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.55}
+
+/* Comparison */
+.lp-compare{background:var(--white);padding:72px 48px}
+.lp-compare-inner{max-width:760px;margin:0 auto}
+.compare-table{width:100%;border-collapse:collapse;margin-top:36px;font-size:13px}
+.compare-table th{padding:12px 16px;text-align:left;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--gray-card);font-weight:500}
+.compare-table th.hl{color:var(--navy)}
+.compare-table td{padding:14px 16px;border-bottom:1px solid var(--gray-card);color:var(--text-muted)}
+.compare-table td.hl{color:var(--navy);font-weight:500}
+.compare-table tr:last-child td{border-bottom:none}
+.tick-y{color:var(--gold);font-weight:500}
+.tick-n{color:var(--gray-border)}
+
+/* Coaching upsell */
+.lp-coach{background:var(--gray-bg);padding:72px 48px}
+.lp-coach-inner{max-width:600px;margin:0 auto;text-align:center}
+.coach-card{background:var(--navy);border-radius:10px;padding:48px 40px}
+.coach-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.coach-h{font-family:'Playfair Display',serif;font-size:28px;color:var(--white);margin-bottom:14px;font-weight:500;line-height:1.3}
+.coach-p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;font-weight:300}
+.coach-btn{background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:14px 32px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:0.5px;width:100%;margin-bottom:10px;transition:all 0.2s}
+.coach-btn:hover{background:var(--gold-light)}
+.coach-btn2{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:13px 32px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;transition:all 0.2s}
+.coach-btn2:hover{border-color:rgba(255,255,255,0.4);color:var(--white)}
+
+/* Final CTA */
+.lp-final{background:var(--white);padding:72px 48px;text-align:center}
+.lp-final-h{font-family:'Playfair Display',serif;font-size:36px;color:var(--navy);font-weight:500;margin-bottom:12px}
+.lp-final-p{font-size:15px;color:var(--text-muted);max-width:440px;margin:0 auto 36px;line-height:1.7}
+.lp-final-cta{background:var(--navy);color:var(--white);border:none;border-radius:6px;padding:16px 44px;font-size:14px;font-weight:500;font-family:'DM Sans',sans-serif;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.lp-final-cta:hover{background:var(--navy2)}
+.lp-final-note{font-size:12px;color:var(--text-muted);margin-top:12px}
+.lp-footer{background:var(--navy);padding:24px 48px;text-align:center}
+.lp-footer p{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.5px}
+
+/* ─── CAPTURE ─── */
+.cap{background:var(--gray-bg);padding:40px;min-height:100vh}
+.cap-card{background:var(--white);border-radius:10px;max-width:480px;margin:0 auto;padding:48px}
+.cap-ey{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.cap-h{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:500;line-height:1.3;margin-bottom:10px}
+.cap-p{font-size:13px;color:var(--navy);line-height:1.65;margin-bottom:28px}
+.fl{margin-bottom:18px}
+.fl label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);font-weight:500;display:block;margin-bottom:7px}
+.fi{width:100%;border:1.5px solid var(--gray-border);border-radius:6px;padding:12px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--white);outline:none;transition:border 0.2s}
+.fi:focus{border-color:var(--navy)}
+.fi::placeholder{color:#999}
+.cap-btn{background:var(--navy);color:var(--white);border:none;border-radius:6px;padding:15px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;margin-top:4px;transition:background 0.2s;letter-spacing:0.5px}
+.cap-btn:hover{background:var(--navy2)}
+.priv{font-size:11px;color:var(--text-muted);text-align:center;margin-top:14px;line-height:1.6}
+.cap-back{background:none;border:none;font-size:12px;color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:24px;padding:0;display:flex;align-items:center;gap:6px}
+.cap-back:hover{color:var(--navy)}
+
+/* ─── QUESTIONS ─── */
+.qs{background:var(--gray-bg);min-height:100vh}
+.qs-bar{background:var(--navy);padding:16px 40px;display:flex;align-items:center;gap:24px}
+.qs-logo{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--white);font-weight:500;white-space:nowrap}
+.qs-dim-tag{font-size:10px;color:var(--gold);white-space:nowrap;letter-spacing:1px}
+.prog-t{flex:1;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden}
+.prog-f{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s ease}
+.prog-l{font-size:11px;color:rgba(255,255,255,0.6);white-space:nowrap}
+.qs-card{background:var(--white);margin:32px auto;border-radius:10px;padding:44px;max-width:600px}
+.q-dim{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--navy);font-weight:500;margin-bottom:6px;border-left:2px solid var(--gold);padding-left:10px}
+.q-num{font-size:12px;color:var(--text-muted);margin-bottom:18px}
+.q-t{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:28px}
+.q-context{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:24px;padding:14px 16px;background:var(--gray-light);border-radius:6px;border-left:2px solid var(--gold);font-style:italic}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{background:var(--white);border:1.5px solid var(--gray-card);border-radius:8px;padding:14px 18px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:all 0.18s;text-align:left;font-family:'DM Sans',sans-serif;width:100%}
+.opt:hover{border-color:var(--navy);background:#f5f7fc}
+.opt.sel{border-color:var(--navy);background:#EEF1F8}
+.opt-i{font-size:11px;color:var(--gray-border);min-width:14px;margin-top:2px;flex-shrink:0}
+.opt.sel .opt-i{color:var(--gold)}
+.opt-t{font-size:13px;color:var(--navy);line-height:1.55}
+.opt.sel .opt-t{font-weight:500}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px}
+.btn-b{background:transparent;border:1.5px solid var(--gray-border);border-radius:6px;padding:10px 20px;font-size:12px;color:var(--navy);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.btn-b:hover{border-color:var(--navy)}
+.btn-n{background:var(--navy);border:none;border-radius:6px;padding:12px 28px;font-size:12px;font-weight:500;color:var(--white);cursor:pointer;font-family:'DM Sans',sans-serif;opacity:0.25;pointer-events:none;transition:all 0.2s}
+.btn-n.on{opacity:1;pointer-events:auto}
+.btn-n.on:hover{background:var(--navy2)}
+
+/* ─── RESULTS ─── */
+.res{background:var(--gray-bg);padding:32px;min-height:100vh}
+.res-card{background:var(--white);border-radius:10px;max-width:640px;margin:0 auto;overflow:hidden}
+
+.res-hero{background:var(--navy);padding:48px 44px;text-align:center}
+.res-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.res-name{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:8px}
+.res-band{font-family:'Playfair Display',serif;font-size:44px;color:var(--white);font-weight:500;margin-bottom:6px}
+.res-score-tag{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.res-track{height:4px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;max-width:340px;margin:0 auto 12px}
+.res-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 1.2s ease}
+.res-markers{display:flex;justify-content:space-between;max-width:340px;margin:0 auto 24px;font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.5px}
+.res-band-desc{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.75;max-width:440px;margin:0 auto;font-weight:300}
+
+/* Report sections */
+.report-section{padding:36px 44px;border-bottom:1px solid var(--gray-card)}
+.report-section:last-of-type{border-bottom:none}
+.rs-tag{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.rs-h{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:500;margin-bottom:16px}
+.rs-p{font-size:14px;color:var(--navy);line-height:1.75;margin-bottom:16px}
+
+/* Dimension deep-dive */
+.dim-deep{border:1px solid var(--gray-card);border-radius:8px;padding:24px;margin-bottom:16px}
+.dd-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.dd-name{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--navy);font-weight:500;border-left:2px solid var(--gold);padding-left:10px}
+.dd-score{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);font-weight:500}
+.dd-bar{height:3px;background:var(--gray-card);border-radius:2px;overflow:hidden;margin-bottom:14px}
+.dd-fill{height:100%;background:var(--gold);border-radius:2px}
+.dd-band-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.dd-insight{font-size:13px;color:var(--navy);line-height:1.7;margin-bottom:14px}
+
+/* Actions */
+.actions-block{margin-top:4px}
+.action-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--gray-light)}
+.action-item:last-child{border-bottom:none}
+.action-num{background:var(--navy);color:var(--white);font-size:11px;font-weight:500;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.action-content{}
+.action-title{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:4px}
+.action-desc{font-size:12px;color:var(--text-muted);line-height:1.6}
+
+/* Pattern section */
+.pattern-block{background:var(--gray-light);border-radius:8px;padding:20px 24px;margin-bottom:14px}
+.pb-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.pb-text{font-size:13px;color:var(--navy);line-height:1.7}
+
+/* Priority box */
+.priority-box{background:var(--navy);color:var(--white);border-radius:8px;padding:24px;margin-bottom:14px}
+.pbox-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.pbox-h{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);margin-bottom:8px;font-weight:500}
+.pbox-p{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.65}
+
+/* Coaching CTA */
+.coaching-cta{background:var(--navy);padding:48px 44px;text-align:center}
+.cc-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cc-h{font-family:'Playfair Display',serif;font-size:28px;color:var(--white);font-weight:500;margin-bottom:12px;line-height:1.3}
+.cc-p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto;font-weight:300}
+.cc-btn1{background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:15px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;max-width:380px;display:block;margin:0 auto 10px;letter-spacing:0.5px;transition:all 0.2s}
+.cc-btn1:hover{background:var(--gold-light)}
+.cc-btn2{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:13px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;max-width:380px;display:block;margin:0 auto;transition:all 0.2s}
+.cc-btn2:hover{border-color:rgba(255,255,255,0.35);color:var(--white)}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LANDING PAGE
+══════════════════════════════════════════ -->
+<div id="sLand" class="screen active">
+
+  <nav class="lp-nav">
+    <span class="lp-brand">Elevate 360 Group</span>
+    <button class="lp-nav-cta" onclick="goTo('sCapture')">Get the Diagnostic — £17</button>
+  </nav>
+
+  <section class="lp-hero">
+    <div class="lp-hero-tag">360 Leadership Diagnostic</div>
+    <h1 class="lp-hero-h">The most honest look at your leadership you'll ever take</h1>
+    <p class="lp-hero-sub">21 questions. Three dimensions. A personalised report that tells you not just where you stand — but exactly what to do about it.</p>
+    <div class="lp-hero-rule"></div>
+    <div class="lp-price-block">
+      <span class="lp-price">£17</span>
+      <span class="lp-price-note">One-time. Instant access.<br>No subscription. No catch.</span>
+    </div><br>
+    <button class="lp-hero-cta" onclick="goTo('sCapture')">Start the Diagnostic</button>
+    <p class="lp-hero-note">Takes 15–20 minutes. Results are immediate.</p>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-section-inner">
+      <div class="lp-section-tag">What you get</div>
+      <h2 class="lp-section-h">This isn't a quiz. It's a mirror.</h2>
+      <p class="lp-section-p">Most leadership tools give you a label. A personality type. A colour. Something that sounds impressive but doesn't tell you what to do on Monday morning. This is different.</p>
+      <div class="lp-rule"></div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="fc-num">21</div>
+          <div class="fc-h">Deep, honest questions</div>
+          <div class="fc-p">Not "on a scale of 1–5, are you a good listener." Questions that require you to look at yourself without the flattery.</div>
+        </div>
+        <div class="feature-card">
+          <div class="fc-num">3</div>
+          <div class="fc-h">Dimensions scored in full</div>
+          <div class="fc-p">Leadership Behaviour, Team Performance, and Culture & Scalability — each scored, explained, and unpacked with context specific to your result.</div>
+        </div>
+        <div class="feature-card">
+          <div class="fc-num">4</div>
+          <div class="fc-h">Performance bands</div>
+          <div class="fc-p">Reactive, Developing, Scaling, or High-Performance — with a narrative that explains exactly what that band means for where you are right now.</div>
+        </div>
+        <div class="feature-card">
+          <div class="fc-num">12+</div>
+          <div class="fc-h">Practical actions</div>
+          <div class="fc-p">Not theory. Not frameworks. Specific things you can start doing this week — matched to your actual gaps, not a generic checklist.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-dims">
+    <div class="lp-dims-inner">
+      <div class="lp-section-tag">The three dimensions</div>
+      <h2 class="lp-section-h">Where we look — and why</h2>
+      <p class="lp-section-p" style="color:var(--navy)">Leadership doesn't exist in isolation. It shows up in your behaviour, in your team, and in what you've built. We assess all three.</p>
+      <div class="dim-row">
+        <div class="dim-card">
+          <div class="dim-card-num">Dimension 01</div>
+          <div class="dim-card-h">Leadership Behaviour</div>
+          <div class="dim-card-p">How you show up. How you make decisions, give feedback, and respond under pressure. The habits people around you have learned to expect.</div>
+          <div class="dim-card-qs">7 questions · 35 points</div>
+        </div>
+        <div class="dim-card">
+          <div class="dim-card-num">Dimension 02</div>
+          <div class="dim-card-h">Team Performance</div>
+          <div class="dim-card-p">How your team performs without you doing the work for them. Accountability, autonomy, and the conditions you've created — or haven't.</div>
+          <div class="dim-card-qs">7 questions · 35 points</div>
+        </div>
+        <div class="dim-card">
+          <div class="dim-card-num">Dimension 03</div>
+          <div class="dim-card-h">Culture & Scalability</div>
+          <div class="dim-card-p">Whether what you've built can grow without you at the centre. Systems, culture, and the question no one likes to answer honestly.</div>
+          <div class="dim-card-qs">7 questions · 35 points</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-who">
+    <div class="lp-who-inner">
+      <div class="lp-section-tag" style="color:var(--gold)">Who this is for</div>
+      <h2 class="lp-section-h" style="color:var(--white);margin-bottom:12px">Built for leaders who want the truth</h2>
+      <p class="lp-section-p" style="color:rgba(255,255,255,0.6)">Not the version of leadership you present in performance reviews. The real version.</p>
+      <div class="who-grid">
+        <div class="who-item"><span class="who-dash">—</span><span class="who-text">You manage a team and you're not sure if they'd thrive without you</span></div>
+        <div class="who-item"><span class="who-dash">—</span><span class="who-text">You're strong in some areas but you know there are gaps you haven't faced</span></div>
+        <div class="who-item"><span class="who-dash">—</span><span class="who-text">You've hit a ceiling and you're not sure what's causing the drag</span></div>
+        <div class="who-item"><span class="who-dash">—</span><span class="who-text">You want to grow — but you want a real starting point, not a personality label</span></div>
+        <div class="who-item"><span class="who-dash">—</span><span class="who-text">You're a founder, head of department, or senior manager who is done guessing</span></div>
+        <div class="who-item"><span class="who-dash">—</span><span class="who-text">You want practical actions, not a report you file and forget</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-compare">
+    <div class="lp-compare-inner">
+      <div class="lp-section-tag">How it compares</div>
+      <h2 class="lp-section-h">Why this is different</h2>
+      <p class="lp-section-p">There are hundreds of leadership tools out there. Most of them tell you who you are. This one tells you what to do.</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>What you need</th>
+            <th>Generic free tools</th>
+            <th>Enterprise tools (£100s)</th>
+            <th class="hl">Elevate 360 Diagnostic</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Honest, specific questions</td><td class="tick-n">✗</td><td class="tick-y">✓</td><td class="hl tick-y">✓</td></tr>
+          <tr><td>Practical actions you can use now</td><td class="tick-n">✗</td><td class="tick-n">✗</td><td class="hl tick-y">✓</td></tr>
+          <tr><td>Accessible without HR sign-off</td><td class="tick-y">✓</td><td class="tick-n">✗</td><td class="hl tick-y">✓</td></tr>
+          <tr><td>Results that feel written for you</td><td class="tick-n">✗</td><td class="tick-y">✓</td><td class="hl tick-y">✓</td></tr>
+          <tr><td>Under £20</td><td class="tick-y">✓</td><td class="tick-n">✗</td><td class="hl tick-y">✓</td></tr>
+          <tr><td>Clear coaching pathway</td><td class="tick-n">✗</td><td class="tick-n">✗</td><td class="hl tick-y">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="lp-coach">
+    <div class="lp-coach-inner">
+      <div class="coach-card">
+        <div class="coach-tag">Want to go further?</div>
+        <h2 class="coach-h">The diagnostic is the starting point.<br>Coaching is where it moves.</h2>
+        <p class="coach-p">A report tells you what. A coach helps you actually do it. If your results surface something you want to work through properly, a one-to-one session with an Elevate 360 practitioner gives you the space to build a plan that fits your situation.</p>
+        <button class="coach-btn" onclick="window.location.href='mailto:info@elevate360-group.com?subject=Coaching Enquiry'">Book a free clarity call</button>
+        <button class="coach-btn2" onclick="goTo('sCapture')">Start with the diagnostic first →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-final">
+    <h2 class="lp-final-h">Ready to find out where you actually stand?</h2>
+    <p class="lp-final-p">£17. 20 minutes. A report that gives you something most leaders never get — a clear picture and a place to start.</p>
+    <button class="lp-final-cta" onclick="goTo('sCapture')">Start the Diagnostic</button>
+    <p class="lp-final-note">Instant access. Results on screen the moment you finish.</p>
+  </section>
+
+  <footer class="lp-footer">
+    <p>© 2025 Elevate 360 Group · <a href="https://elevate360-group.co.uk" style="color:rgba(255,255,255,0.35);text-decoration:none">elevate360-group.co.uk</a> · <a href="mailto:info@elevate360-group.com" style="color:rgba(255,255,255,0.35);text-decoration:none">info@elevate360-group.com</a></p>
+  </footer>
+
+</div><!-- /sLand -->
+
+
+<!-- ══════════════════════════════════════════
+     CAPTURE
+══════════════════════════════════════════ -->
+<div id="sCapture" class="screen">
+  <div style="background:var(--navy);padding:16px 40px;display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--white);font-weight:500">Elevate 360 Group</span>
+    <span style="font-size:10px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase">360 Leadership Diagnostic</span>
+  </div>
+  <div class="cap">
+    <div class="cap-card">
+      <button class="cap-back" onclick="goTo('sLand')">← Back to overview</button>
+      <div class="cap-ey">Step 1 of 2</div>
+      <h2 class="cap-h">Let's personalise your report</h2>
+      <p class="cap-p">Your results are tailored to you. We'll send your full report to your inbox — so you can refer back to it, share it with a coach, or use it as your personal development baseline.</p>
+      <div class="fl"><label for="fn2">First name</label><input class="fi" id="fn2" type="text" placeholder="Your first name" autocomplete="given-name"></div>
+      <div class="fl"><label for="fe2">Email address</label><input class="fi" id="fe2" type="email" placeholder="Your email address" autocomplete="email"></div>
+      <button class="cap-btn" onclick="doCapture2()">Continue to the Diagnostic →</button>
+      <p class="priv">No spam. No sharing. Unsubscribe any time.<br>By continuing you agree to receive your results and occasional insights from Elevate 360.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     QUESTIONS
+══════════════════════════════════════════ -->
+<div id="sQ" class="screen">
+  <div class="qs">
+    <div class="qs-bar">
+      <span class="qs-logo">Elevate 360</span>
+      <div class="prog-t"><div class="prog-f" id="pBar" style="width:5%"></div></div>
+      <span class="prog-l" id="pLbl">1 / 21</span>
+    </div>
+    <div class="qs-card">
+      <div class="q-dim" id="qDim"></div>
+      <div class="q-num" id="qNum"></div>
+      <div class="q-t" id="qT"></div>
+      <div class="q-context" id="qCtx" style="display:none"></div>
+      <div class="opts" id="opts"></div>
+      <div class="q-nav">
+        <button class="btn-b" id="bBack" onclick="back()">← Back</button>
+        <button class="btn-n" id="bNext" onclick="next()">Continue →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     RESULTS
+══════════════════════════════════════════ -->
+<div id="sRes" class="screen">
+  <div class="res">
+    <div class="res-card">
+      <div class="res-hero">
+        <div class="res-label">Your 360 Leadership Diagnostic</div>
+        <div class="res-name" id="rName"></div>
+        <div class="res-band" id="rBand"></div>
+        <div class="res-score-tag" id="rSc"></div>
+        <div class="res-track"><div class="res-fill" id="rFill" style="width:0%"></div></div>
+        <div class="res-markers"><span>Reactive</span><span>Developing</span><span>Scaling</span><span>High-Performance</span></div>
+        <div class="res-band-desc" id="rDesc"></div>
+      </div>
+
+      <!-- DIMENSION SCORES -->
+      <div class="report-section">
+        <div class="rs-tag">Your scores by dimension</div>
+        <div id="dimScoresBlock"></div>
+      </div>
+
+      <!-- WHAT THIS MEANS -->
+      <div class="report-section">
+        <div class="rs-tag">What this means for you</div>
+        <div class="rs-h" id="whatMeansH"></div>
+        <div class="rs-p" id="whatMeansP"></div>
+      </div>
+
+      <!-- PATTERNS -->
+      <div class="report-section">
+        <div class="rs-tag">The patterns showing up in your results</div>
+        <div id="patternsBlock"></div>
+      </div>
+
+      <!-- YOUR PRIORITY -->
+      <div class="report-section">
+        <div class="rs-tag">Your single most important focus</div>
+        <div id="priorityBlock"></div>
+      </div>
+
+      <!-- DIMENSION DEEP DIVES -->
+      <div class="report-section">
+        <div class="rs-tag">Dimension by dimension — what to do</div>
+        <div id="deepDiveBlock"></div>
+      </div>
+
+      <!-- COACHING CTA -->
+      <div class="coaching-cta">
+        <div class="cc-tag">Ready to go further?</div>
+        <div class="cc-h" id="coachH">Your report is the map.<br>Coaching is the journey.</div>
+        <div class="cc-p" id="coachP">These results give you clarity — but applying them in the context of your specific situation, team dynamics, and goals is where the real shift happens. A one-to-one clarity call with an Elevate 360 practitioner is free, no-obligation, and usually where the most useful conversation starts.</div>
+        <button class="cc-btn1" onclick="window.location.href='mailto:info@elevate360-group.com?subject=Coaching Enquiry — 360 Diagnostic'">Book your free clarity call</button>
+        <button class="cc-btn2" onclick="window.print()">Save or print your report</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════
+   DATA
+════════════════════════════════ */
+const Qs=[
+  /* ── DIMENSION 1: Leadership Behaviour (Q1–7) ── */
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'When your team comes to you with a problem, what do you actually do?',
+   ctx:'Think about the last three times this happened — not what you aim to do, what you actually did.',
+   opts:[{s:1,t:'I solve it for them. It\'s faster and I know I\'ll get it right.'},{s:2,t:'I give them direction but end up doing most of the thinking.'},{s:3,t:'I ask questions — but I\'m not consistent about it.'},{s:4,t:'I coach them to the answer. It takes longer but it sticks.'},{s:5,t:'They come to me with solutions, not problems. I help them pressure-test.'}]},
+
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'How do you handle a direct conversation when someone on your team isn\'t pulling their weight?',
+   ctx:null,
+   opts:[{s:1,t:'I avoid it. I manage around the person instead.'},{s:2,t:'I raise it, but I soften it so much it doesn\'t land.'},{s:3,t:'I\'m honest about it — but my follow-through is inconsistent.'},{s:4,t:'I have the conversation clearly and I follow it through.'},{s:5,t:'I\'ve built a culture where people hold each other accountable before it gets to me.'}]},
+
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'How clear are you on your own leadership blind spots right now?',
+   ctx:'Not what your last appraisal said. What you actually know about where your leadership creates problems.',
+   opts:[{s:1,t:'Honestly — I\'m not sure I know what they are.'},{s:2,t:'I have a general sense, but nothing specific.'},{s:3,t:'I know some of them, but I haven\'t faced them head-on.'},{s:4,t:'I can name them clearly and I\'m actively working on them.'},{s:5,t:'I actively seek feedback on them and I track my progress.'}]},
+
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'When you\'re under pressure, what happens to how you lead?',
+   ctx:null,
+   opts:[{s:1,t:'I revert to control — I take things back and stop delegating.'},{s:2,t:'I get reactive. My communication drops off and I become hard to read.'},{s:3,t:'I notice it happening but struggle to correct in the moment.'},{s:4,t:'I stay broadly consistent — pressure changes my pace, not my approach.'},{s:5,t:'Pressure is when I\'m at my best. The team feels the steadiness.'}]},
+
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'How often do you make time to develop the people around you — not just manage them?',
+   ctx:'Development means investing in their growth, not just their output.',
+   opts:[{s:1,t:'Rarely. There\'s no time and the business always takes priority.'},{s:2,t:'Occasionally — usually when something breaks down and forces the conversation.'},{s:3,t:'I try to, but it\'s inconsistent and reactive rather than planned.'},{s:4,t:'I have regular development conversations and I take them seriously.'},{s:5,t:'Growing the people around me is one of the main ways I measure my own success.'}]},
+
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'When you make a call that turns out to be wrong, what happens next?',
+   ctx:null,
+   opts:[{s:1,t:'I find it difficult to acknowledge — I tend to defend the decision.'},{s:2,t:'I acknowledge it privately but rarely make it visible to the team.'},{s:3,t:'I own it, but I don\'t always draw out the learning.'},{s:4,t:'I own it openly, extract the lesson, and adjust.'},{s:5,t:'Being wrong is something I model deliberately — it makes it easier for others to do the same.'}]},
+
+  {dim:'Leadership Behaviour',dimIdx:0,
+   text:'How well do you know what actually motivates each person on your team?',
+   ctx:'Not the generic answer — what specifically drives each individual.',
+   opts:[{s:1,t:'I don\'t really know. I treat the team fairly but the same.'},{s:2,t:'I have a rough sense, but nothing specific per person.'},{s:3,t:'I know for some of them — not all.'},{s:4,t:'I know what drives each person and I lead them accordingly.'},{s:5,t:'Understanding what motivates each person is core to how I manage — and I keep it current.'}]},
+
+  /* ── DIMENSION 2: Team Performance (Q8–14) ── */
+  {dim:'Team Performance',dimIdx:1,
+   text:'If you had to be brutally honest — is your team performing at its potential?',
+   ctx:null,
+   opts:[{s:1,t:'No. We\'re firefighting and it\'s been that way for a while.'},{s:2,t:'Some people are — the rest are coasting or stuck.'},{s:3,t:'We\'re solid, but I know we haven\'t broken through our ceiling.'},{s:4,t:'We\'re performing well. Results are consistent and the team knows what good looks like.'},{s:5,t:'We\'re high-performing. The team raises its own bar and the results show it.'}]},
+
+  {dim:'Team Performance',dimIdx:1,
+   text:'When something goes wrong in the team, what does accountability actually look like?',
+   ctx:null,
+   opts:[{s:1,t:'There\'s blame, defensiveness, or silence — no real ownership.'},{s:2,t:'People acknowledge it, but nothing really changes.'},{s:3,t:'We debrief but the follow-through is inconsistent.'},{s:4,t:'Ownership is clear and we extract the learning quickly.'},{s:5,t:'The team holds itself accountable before I need to get involved.'}]},
+
+  {dim:'Team Performance',dimIdx:1,
+   text:'How often does your team hit their goals without you pushing?',
+   ctx:null,
+   opts:[{s:1,t:'Rarely — I\'m usually the one chasing.'},{s:2,t:'Sometimes — depends heavily on the person and the week.'},{s:3,t:'Most of the time, with a few persistent exceptions.'},{s:4,t:'Consistently. The team is self-driven.'},{s:5,t:'Always. I\'d be more surprised if they didn\'t.'}]},
+
+  {dim:'Team Performance',dimIdx:1,
+   text:'How clear is your team on what success looks like — right now, in specific terms?',
+   ctx:'Not the annual objective. What does winning this week actually look like for each person?',
+   opts:[{s:1,t:'I don\'t think they could tell you clearly.'},{s:2,t:'There\'s a general sense, but no real precision.'},{s:3,t:'Some people are clear. Others are working on assumptions.'},{s:4,t:'Everyone knows what they\'re working towards and what good looks like.'},{s:5,t:'Clarity on success is something the team sets and owns themselves.'}]},
+
+  {dim:'Team Performance',dimIdx:1,
+   text:'How well does your team perform when you\'re not in the room?',
+   ctx:null,
+   opts:[{s:1,t:'Things stall. Decisions wait for me.'},{s:2,t:'They manage — but at a lower level than when I\'m present.'},{s:3,t:'Most things continue. Some things slip.'},{s:4,t:'They perform well. My absence doesn\'t create drag.'},{s:5,t:'They often perform better. The team is fully autonomous and trusted.'}]},
+
+  {dim:'Team Performance',dimIdx:1,
+   text:'When you look at your team\'s performance, how much of it is driven by clarity versus effort?',
+   ctx:'A team working hard on the wrong things isn\'t performing — it\'s just busy.',
+   opts:[{s:1,t:'Mostly effort. There\'s a lot of busy and not enough clarity.'},{s:2,t:'Mixed. The effort is there but direction shifts too often.'},{s:3,t:'Reasonable balance, though clarity could be sharper.'},{s:4,t:'Clarity drives effort here. People work hard on the right things.'},{s:5,t:'Clarity is our operating system. Effort is well-directed and deliberate.'}]},
+
+  {dim:'Team Performance',dimIdx:1,
+   text:'How do you handle underperformance that becomes persistent?',
+   ctx:null,
+   opts:[{s:1,t:'I manage around it and hope it resolves itself.'},{s:2,t:'I raise it informally but don\'t create a clear expectation or consequence.'},{s:3,t:'I address it, but I\'m not always consistent in following through.'},{s:4,t:'I address it early, clearly, and with a defined path to resolution.'},{s:5,t:'Persistent underperformance rarely gets to me — the team and culture address it first.'}]},
+
+  /* ── DIMENSION 3: Culture & Scalability (Q15–21) ── */
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'If you stepped back completely for three months, what would actually happen?',
+   ctx:'Be honest. Not what you\'d hope — what you genuinely believe would occur.',
+   opts:[{s:1,t:'It would fall apart. I\'m holding too much together.'},{s:2,t:'It would dip significantly. People would wait for direction.'},{s:3,t:'It would hold — but wouldn\'t grow or improve.'},{s:4,t:'It would run well. The team knows what to do.'},{s:5,t:'It might actually improve. The systems and people don\'t need me to succeed.'}]},
+
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'How would you honestly describe the culture your team operates in day-to-day?',
+   ctx:null,
+   opts:[{s:1,t:'Reactive and inconsistent. We move from crisis to crisis.'},{s:2,t:'Fragmented. The culture depends on who you\'re talking to.'},{s:3,t:'Functional. People get on, but it\'s not what I\'d call a real culture.'},{s:4,t:'Positive. People feel safe, take ownership, and hold each other up.'},{s:5,t:'Exceptional. The culture is a genuine competitive advantage.'}]},
+
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'How much of your organisation\'s knowledge lives in people\'s heads versus documented systems?',
+   ctx:null,
+   opts:[{s:1,t:'Almost all of it is in people\'s heads — and mostly mine.'},{s:2,t:'Some things are written down, but it\'s patchy and out of date.'},{s:3,t:'We have documentation, but it\'s not relied on or kept current.'},{s:4,t:'Key processes are documented and people actually use them.'},{s:5,t:'Our systems run independently of any specific person. New people get up to speed fast.'}]},
+
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'How do decisions get made when you\'re not available?',
+   ctx:null,
+   opts:[{s:1,t:'They don\'t — or they get made badly and I fix them later.'},{s:2,t:'People guess or delay until they can reach me.'},{s:3,t:'Some people can decide. Others still wait.'},{s:4,t:'Clear decision rights mean the right people decide the right things.'},{s:5,t:'Decision-making runs entirely without me. I\'m involved in strategy, not operations.'}]},
+
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'What would a new joiner say about your organisation after their first 90 days?',
+   ctx:null,
+   opts:[{s:1,t:'Confusing. Mixed signals, unclear expectations, no real onboarding.'},{s:2,t:'Mixed. Some great people, but no coherent sense of direction.'},{s:3,t:'Fine. Decent enough, but nothing that made them feel they\'d landed somewhere special.'},{s:4,t:'Good. Clear purpose, real standards, and people who care.'},{s:5,t:'Exceptional. They\'d be telling everyone they know to apply.'}]},
+
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'How deliberately have you built the culture — versus it emerging on its own?',
+   ctx:null,
+   opts:[{s:1,t:'I haven\'t. The culture has formed without intention.'},{s:2,t:'We\'ve talked about it but haven\'t done much to shape it.'},{s:3,t:'There are some intentional elements, but it\'s mostly organic.'},{s:4,t:'Culture is something we\'ve built deliberately and continue to tend.'},{s:5,t:'Culture is designed, lived, and owned by the whole team — not just leadership.'}]},
+
+  {dim:'Culture & Scalability',dimIdx:2,
+   text:'If your best person left tomorrow, how badly would the organisation feel it?',
+   ctx:'This is a question about single points of failure — not about valuing people.',
+   opts:[{s:1,t:'Catastrophically. We\'d be in serious trouble.'},{s:2,t:'Very badly. We\'d struggle for months.'},{s:3,t:'Significantly — but we\'d recover with effort.'},{s:4,t:'We\'d feel it, but the system and team would absorb it.'},{s:5,t:'We\'d miss them personally, but the organisation wouldn\'t skip a beat.'}]}
+];
+
+/* ════════════════════════════════
+   REPORT CONTENT
+════════════════════════════════ */
+const dimMeta=[
+  {
+    name:'Leadership Behaviour',max:35,
+    bands:{
+      low:{label:'Reactive',score_range:'7–16',
+        insight:'Your leadership behaviour is creating friction — possibly more than you realise. When leaders operate in reactive mode, the cost shows up in team confidence, decision quality, and the invisible energy drain of people working around unpredictability rather than with it. The behaviours that would shift this aren\'t dramatic. They\'re consistent, practiced, and mostly uncomfortable to start.',
+        actions:[
+          {title:'Block 30 minutes each Friday for a leadership review',desc:'Not performance review — your review. Ask yourself: where did I rescue when I should have coached? Where did I avoid what I should have said? One question, honest answer, written down. Do it for 6 weeks.'},
+          {title:'Name your single biggest avoidance pattern',desc:'The conversation you keep not having. The feedback you keep softening. Write it down and book it within the next 5 working days. Once — not a system, just once. Notice what happens.'},
+          {title:'Start narrating your reasoning out loud',desc:'When you make a call, say why. Not a lecture — one sentence. "I\'m doing it this way because..." Over time this builds trust, predictability, and the conditions for people to think the way you think.'},
+          {title:'Ask your team one question this week',desc:'"What\'s one thing I do that makes your job harder?" Sit with the answer. Don\'t defend. Don\'t over-explain. Just hear it.'}
+        ]
+      },
+      mid:{label:'Developing',score_range:'17–24',
+        insight:'You\'re showing up well in some areas and inconsistently in others. The gap between your best leadership and your default leadership is where the work is. Inconsistency from a leader isn\'t just confusing — it\'s costly. People spend energy reading the room instead of doing the work. The good news is that you\'re not far from consistent. The habits are close — they just aren\'t automatic yet.',
+        actions:[
+          {title:'Identify your two best leadership moments from the last month',desc:'What were you doing? What were the conditions? Start deliberately recreating those conditions rather than waiting for them to happen organically.'},
+          {title:'Map your inconsistency triggers',desc:'Pressure? Certain people? Certain types of problem? Knowing what knocks you off your best self is the first step to managing it. Write three triggers down this week.'},
+          {title:'Pick one person and go deeper',desc:'Choose someone on your team and commit to understanding their motivation, working style, and development goal in real depth over the next month. Then replicate that for the rest.'},
+          {title:'Build a 15-minute weekly one-to-one rhythm with everyone',desc:'Not a status check. A real conversation: what\'s going well, what\'s hard, what do they need. Consistency of attention is what builds trust.'}
+        ]
+      },
+      high:{label:'Scaling / High-Performance',score_range:'25–35',
+        insight:'Your leadership behaviour is a genuine strength — and the people around you feel it. Trust has been earned, standards have been set, and the culture of your immediate environment reflects the way you show up. The risk at this level isn\'t skill — it\'s complacency. High-performing leaders can plateau when they stop seeking the harder feedback and start believing the results speak for everything.',
+        actions:[
+          {title:'Seek the feedback you\'re not getting',desc:'Specifically ask your team: "What\'s one thing I could do differently that would make your working life better?" High performers often stop getting honest feedback because people assume they\'re fine.'},
+          {title:'Document what you do that works',desc:'Your leadership habits are valuable IP. Write them down so they can be taught, scaled, and survive your absence. If you can\'t explain it, it can\'t outlive you.'},
+          {title:'Find your next edge',desc:'What\'s the leadership capability you\'ve avoided developing? The one that\'s never felt necessary because your strengths have compensated. That\'s the one to go after now.'}
+        ]
+      }
+    }
+  },
+  {
+    name:'Team Performance',max:35,
+    bands:{
+      low:{label:'Reactive',score_range:'7–16',
+        insight:'Performance is fragile — and the fragility is costing you more than just results. When a team is reactive, the leader ends up doing more, not less. The inverse of what leadership is meant to achieve. The three things that change this, in order: clarity (people need to know exactly what winning looks like), accountability (ownership without ambiguity), and autonomy (the freedom to perform without constant permission).',
+        actions:[
+          {title:'Redefine success for each person this week',desc:'Not the job description — the real answer to "what does excellent look like for you, this month?" Sit with each person for 20 minutes and make it specific. Vague targets produce vague performance.'},
+          {title:'Stop solving. Start questioning.',desc:'The next time someone brings you a problem, respond only with questions for one week. "What have you tried? What do you think the options are? What would you do?" It feels slower. It isn\'t.'},
+          {title:'Create one explicit accountability moment per week',desc:'A team standup, a Friday review, a shared scorecard — anything that makes performance visible to the team, not just to you. Visibility creates pressure. Pressure creates performance.'},
+          {title:'Identify your one biggest performance drain',desc:'The person, process, or pattern that is pulling the team down. Name it precisely. Then make one decision about it this week — not eventually.'}
+        ]
+      },
+      mid:{label:'Developing',score_range:'17–24',
+        insight:'There\'s real capability here — but there\'s a ceiling the team hasn\'t broken through. In most cases at this level, it\'s not a skill problem. It\'s a clarity problem, a trust problem, or a culture problem. Often all three. The team is working — but they\'re not flying. The difference between solid and exceptional is usually tighter feedback loops, higher standards, and leaders who stop accepting "pretty good" as the answer.',
+        actions:[
+          {title:'Raise your standard by 10%',desc:'Not a big speech. Just quietly hold more. In your next feedback conversation, be 10% more specific. In your next goal-setting, be 10% more ambitious. Small ratchets compound quickly.'},
+          {title:'Find your ceiling-setter',desc:'There\'s a person or a pattern keeping the team at this level. Who or what is it? Name it. Decide what you\'re going to do about it within the next two weeks.'},
+          {title:'Celebrate the right things',desc:'What you celebrate tells the team what matters. Start noticing and calling out the behaviours you want more of — not just the results. Behaviour leads results.'},
+          {title:'Create a team norms conversation',desc:'Get your team together and ask: "What are the behaviours we hold each other to?" Let them set the standard. Owned norms are enforced norms.'}
+        ]
+      },
+      high:{label:'Scaling / High-Performance',score_range:'25–35',
+        insight:'Your team performs. That\'s not luck and it\'s not easy — it\'s the result of sustained investment in clarity, trust, and accountability. At this level, the work is protecting performance rather than driving it. High-performing teams have a habit of regressing when leaders stop paying attention or when complacency sets into the culture. Your job now is to sustain the conditions that got you here.',
+        actions:[
+          {title:'Have a team health conversation quarterly',desc:'Not performance. Health. Ask the team: "What\'s working well? What\'s starting to slip? What\'s one thing we should stop doing?" Do it transparently and act on what you hear.'},
+          {title:'Look for the next challenge',desc:'High-performing teams that aren\'t challenged start to plateau. What\'s the next thing that will stretch this team in a direction it hasn\'t been stretched before?'},
+          {title:'Develop someone ready to lead',desc:'If your team is performing this well, someone in it is ready for more responsibility. Find them. Give it to them. Succession is a leadership discipline, not an HR exercise.'}
+        ]
+      }
+    }
+  },
+  {
+    name:'Culture & Scalability',max:35,
+    bands:{
+      low:{label:'Reactive',score_range:'7–16',
+        insight:'The organisation runs on people — primarily on you — and that\'s the ceiling. Not a reflection on your effort; a reflection on what hasn\'t been built yet. Organisations that rely on individuals rather than systems don\'t scale — they replicate the dependency at every stage of growth. The shift isn\'t painful, but it is deliberate. It starts with documenting, delegating, and building the conditions for others to lead.',
+        actions:[
+          {title:'Do a single-point-of-failure audit this week',desc:'Walk through your key processes and ask: if X person left tomorrow, what breaks? List every answer. That\'s your build list. Start with the one that would hurt most.'},
+          {title:'Document one process this week',desc:'Pick the most common thing you or a key person does that lives only in their head. Write it down, step by step. Not perfectly — just written. That\'s the start of a system.'},
+          {title:'Delegate one decision permanently',desc:'Not "check with me" — permanently. Choose a decision you currently make, decide who should own it, explain the criteria, hand it over. Don\'t take it back.'},
+          {title:'Have a "what is our culture" conversation',desc:'Ask your team: "What do we stand for? What behaviours do we hold ourselves to? What would feel out of character for us?" Listen more than you talk. What you hear tells you a lot.'}
+        ]
+      },
+      mid:{label:'Developing',score_range:'17–24',
+        insight:'The bones are good. There\'s culture and there are systems — but they still lean on people rather than design. The gap between what you\'ve built and what can scale is usually documentation, decision rights, and the deliberateness of how culture is maintained. What\'s working informally needs to become structural. Otherwise growth means replicating the problem, not solving it.',
+        actions:[
+          {title:'Map your decision rights',desc:'Write down the top 20 decisions that happen regularly in the business. Against each one, write who should own it. Compare that to who actually owns it. The gap is your delegation agenda.'},
+          {title:'Create a culture document',desc:'Not a values poster. A real description of how things work here — how decisions are made, how people are developed, what success looks like, what\'s not tolerated. Written by the team, for the team.'},
+          {title:'Build an onboarding experience worth having',desc:'If a new person arrived tomorrow, what would they experience? Design the first 30 days deliberately. Culture is caught, not taught — what will they catch?'},
+          {title:'Identify your three most scalable assets',desc:'What do you do well that could be systemised and repeated? Those three things are where you invest next.'}
+        ]
+      },
+      high:{label:'Scaling / High-Performance',score_range:'25–35',
+        insight:'You\'ve built something that can outlive your involvement in the day-to-day. That\'s rare — and it\'s the difference between a business that grows and one that grows and then stalls when the leader moves on. The work now is protecting culture as the organisation scales. Culture dilutes under growth pressure. The leaders who maintain it are the ones who tend it actively, not just talk about it.',
+        actions:[
+          {title:'Culture audit annually',desc:'Bring together a cross-section of your team and ask them to describe the culture honestly — what\'s strong, what\'s started to slip, what they see in new joiners that concerns them. Act on what you hear.'},
+          {title:'Build the next layer of leadership',desc:'Who are the culture carriers in your team? Identify them, invest in them, and give them the mandate to shape the culture actively. Culture can\'t be owned only at the top.'},
+          {title:'Scenario test your systems',desc:'"If three key people left simultaneously, what breaks?" Run the scenario. Patch the gaps before they become crises.'}
+        ]
+      }
+    }
+  }
+];
+
+const bands=[
+  {min:21,max:47,label:'Reactive',
+   desc:'There are gaps — in behaviour, in team performance, and in what you\'ve built — that are costing you more than you probably realise. The instincts that got you here aren\'t wrong. But the habits and systems that get you to the next level haven\'t been built yet. That\'s fixable — and this report tells you exactly where to start.',
+   whatMeansH:'This is the most important moment to pay attention.',
+   whatMeansP:'Leaders in the Reactive band are often the ones working the hardest. The problem isn\'t effort — it\'s that effort is compensating for things that should be structural. Every week you operate this way, the cost compounds: in team dependency, in your own capacity, and in the ceiling it puts on growth. The good news is that the shift from Reactive to Developing often happens faster than people expect — because most of the gaps are visible once you know where to look.',
+   priority:'Start with your leadership behaviour. Until the way you show up is consistent, everything else is unstable. Pick one behaviour gap from your results above and work it for 30 days before moving to the next.',
+   patterns:['High effort, low leverage — you\'re probably working harder than anyone on your team and getting less return on that effort than you should','Decisions flowing upward — things are landing on your desk that shouldn\'t be there','Culture by default — the environment your team operates in has formed without intention, and you can feel the cost of that'],
+   coachH:'A Reactive result is exactly where a coach makes the biggest difference.',
+   coachP:'Not because you\'re failing — because you\'re close. The gaps at this level are specific and addressable. A one-to-one session with an Elevate 360 practitioner helps you build a focused 90-day plan around the two or three things that will move the needle most. It\'s a conversation, not a programme. No obligation — just clarity.'
+  },
+  {min:48,max:70,label:'Developing',
+   desc:'You\'ve built something real. The foundations are there — now it\'s about precision. There are specific patterns in your leadership, your team, and your organisation that are holding you at this level. This report names them. The distance between Developing and Scaling is usually shorter than it looks.',
+   whatMeansH:'You\'re doing the right things. Not all of them, not always.',
+   whatMeansP:'The Developing band is where most good leaders sit — and where they stay longest. Not because they\'re not capable of more, but because the gaps at this level are harder to see. You\'re performing. Results are coming. The ceiling is invisible until you hit it. What this report gives you is the precise view of where your effort is going, where it\'s leaking, and what to change.',
+   priority:'Consistency is the unlock. Pick the dimension where your score is lowest and ask yourself: what\'s the one habit, conversation, or system I\'ve been avoiding that would move this? That\'s your starting point.',
+   patterns:['Inconsistent leadership — strong in some conditions, less so in others — creating unpredictability your team has quietly adapted to','Capability in the team that isn\'t fully activated — people who could do more but haven\'t been given the clarity or autonomy to','Culture that works but hasn\'t been designed — it\'s holding you at good when the conditions for great are close'],
+   coachH:'A Developing result is where coaching creates the clearest ROI.',
+   coachP:'You\'re close. The gaps are specific. A focused set of one-to-one sessions with an Elevate 360 practitioner gives you a clear development plan, a thinking partner who challenges you precisely, and accountability on the things that actually matter. Book a free clarity call and we\'ll be honest about whether it\'s the right fit.'
+  },
+  {min:71,max:91,label:'Scaling',
+   desc:'You\'re operating well — above the level most leaders reach. The work now is in the details. Specific levers in specific areas that take you from consistent to exceptional. This report tells you where those levers are.',
+   whatMeansH:'Strong foundations. A few specific edges to sharpen.',
+   whatMeansP:'Scaling leaders have cracked the basics and are operating with real competence. The challenge at this level is that the gaps are subtler and the feedback rarer — because most of the people around you assume you\'re fine. This report has identified the specific areas where precision and intentionality will make a measurable difference. The distance from Scaling to High-Performance is often one or two well-placed investments.',
+   priority:'Look at your lowest-scoring dimension. That\'s not a weakness — it\'s a lever. A targeted investment there will have a disproportionate impact on your overall effectiveness.',
+   patterns:['Areas of genuine strength that may be masking gaps in others','Culture and systems that are working but may not survive rapid growth or key person departure','Leadership behaviour that is strong but possibly not being transferred to the next layer'],
+   coachH:'At this level, the right thinking partner accelerates what\'s already working.',
+   coachP:'Scaling leaders often benefit most from a sparring partner rather than a coach in the traditional sense — someone who challenges you on the specific edges your results have surfaced. A clarity call with an Elevate 360 practitioner is a good place to start that conversation.'
+  },
+  {min:92,max:105,label:'High-Performance',
+   desc:'You\'re leading at a high level — and the results reflect it. The challenge now isn\'t improvement, it\'s protection. Sustaining what you\'ve built, developing the next layer of leadership, and making sure the organisation doesn\'t depend on you to keep performing.',
+   whatMeansH:'You\'ve built something that works. Now protect it.',
+   whatMeansP:'High-Performance leaders face a specific risk: the belief that the results are self-sustaining. They\'re not — they\'re the product of specific conditions, habits, and people. As organisations grow, those conditions get tested. Culture dilutes. Key people leave. The leader gets stretched thinner. This report gives you a clear picture of where the conditions are strongest and where they\'re most vulnerable to pressure.',
+   priority:'Succession and culture transfer. Who is being developed to lead the way you lead? That\'s the question that determines whether what you\'ve built lasts.',
+   patterns:['High performance that may be leader-dependent in ways that aren\'t yet visible','Culture that is strong but may not be documented or transferable','A team that performs well but may have a ceiling set by the leader\'s own ceiling'],
+   coachH:'The question for High-Performance leaders isn\'t "how do I improve?" It\'s "what do I protect and what do I build next?"',
+   coachP:'A conversation with an Elevate 360 practitioner at this level is about strategic clarity — succession, culture scalability, and the leadership legacy you\'re building. Book a free call and let\'s explore what that looks like for you.'
+  }
+];
+
+/* ════════════════════════════════
+   STATE + NAVIGATION
+════════════════════════════════ */
+let cur=0, ans=new Array(21).fill(null), uName='', uEmail='';
+
+function goTo(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function doCapture2(){
+  const n=document.getElementById('fn2').value.trim();
+  const e=document.getElementById('fe2').value.trim();
+  if(!n){document.getElementById('fn2').focus();return}
+  if(!e||!e.includes('@')){document.getElementById('fe2').focus();return}
+  uName=n; uEmail=e;
+  cur=0; ans=new Array(21).fill(null);
+  goTo('sQ'); renderQ();
+}
+
+function renderQ(){
+  const q=Qs[cur];
+  const pct=Math.round(((cur+1)/21)*100);
+  document.getElementById('pBar').style.width=pct+'%';
+  document.getElementById('pLbl').textContent=(cur+1)+' / 21';
+  document.getElementById('qDim').textContent=q.dim;
+  document.getElementById('qNum').textContent='Question '+(cur+1)+' of 21';
+  document.getElementById('qT').textContent=q.text;
+  const ctx=document.getElementById('qCtx');
+  if(q.ctx){ctx.textContent=q.ctx;ctx.style.display='block'}else{ctx.style.display='none'}
+  const el=document.getElementById('opts'); el.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'+(ans[cur]===o.s?' sel':'');
+    b.innerHTML='<span class="opt-i">'+(i+1)+'</span><span class="opt-t">'+o.t+'</span>';
+    b.onclick=()=>pick(o.s); el.appendChild(b);
+  });
+  const bb=document.getElementById('bBack');
+  bb.style.opacity=cur===0?'0.25':'1';
+  bb.style.pointerEvents=cur===0?'none':'auto';
+  upN();
+}
+
+function pick(s){
+  ans[cur]=s;
+  document.querySelectorAll('.opt').forEach((b,i)=>{
+    b.classList.toggle('sel',Qs[cur].opts[i].s===s);
+  });
+  upN();
+}
+
+function upN(){
+  const b=document.getElementById('bNext'), ok=ans[cur]!==null;
+  b.classList.toggle('on',ok);
+  b.textContent=cur===20?'See my results →':'Continue →';
+}
+
+function back(){if(cur>0){cur--;renderQ()}}
+function next(){if(!ans[cur])return; if(cur===20){showRes();return} cur++;renderQ()}
+
+/* ════════════════════════════════
+   RESULTS ENGINE
+════════════════════════════════ */
+function showRes(){
+  goTo('sRes');
+  const total=ans.reduce((a,b)=>a+(b||0),0);
+  const pct=Math.round(total/105*100);
+  const band=bands.find(b=>total>=b.min&&total<=b.max)||bands[1];
+
+  document.getElementById('rName').textContent=uName ? uName+'\'s Leadership Report' : 'Your Leadership Report';
+  document.getElementById('rBand').textContent=band.label;
+  document.getElementById('rSc').textContent='Overall score: '+total+' / 105';
+  document.getElementById('rDesc').textContent=band.desc;
+  setTimeout(()=>{document.getElementById('rFill').style.width=pct+'%'},300);
+
+  /* Dimension scores */
+  const dScores=[0,0,0];
+  Qs.forEach((q,i)=>{dScores[q.dimIdx]+=ans[i]||0});
+
+  /* Dim score cards */
+  const dsBlock=document.getElementById('dimScoresBlock');
+  dsBlock.innerHTML='';
+  dimMeta.forEach((d,i)=>{
+    const s=dScores[i], p=Math.round(s/d.max*100);
+    const div=document.createElement('div'); div.className='dim-deep';
+    div.innerHTML='<div class="dd-top"><span class="dd-name">'+d.name+'</span><span class="dd-score">'+s+' / '+d.max+'</span></div>'
+      +'<div class="dd-bar"><div class="dd-fill" style="width:'+p+'%"></div></div>';
+    dsBlock.appendChild(div);
+  });
+
+  /* What this means */
+  document.getElementById('whatMeansH').textContent=band.whatMeansH;
+  document.getElementById('whatMeansP').textContent=band.whatMeansP;
+
+  /* Patterns */
+  const pBlock=document.getElementById('patternsBlock');
+  pBlock.innerHTML='<p class="rs-p">Based on the pattern of your answers across all three dimensions, here\'s what\'s showing up:</p>';
+  band.patterns.forEach(p=>{
+    const d=document.createElement('div'); d.className='pattern-block';
+    d.innerHTML='<div class="pb-label">Pattern</div><div class="pb-text">'+p+'</div>';
+    pBlock.appendChild(d);
+  });
+
+  /* Priority */
+  const prBlock=document.getElementById('priorityBlock');
+  prBlock.innerHTML='<div class="priority-box"><div class="pbox-label">Your priority focus</div><div class="pbox-h">'+band.label+' leaders: where to start</div><div class="pbox-p">'+band.priority+'</div></div>';
+
+  /* Deep dives */
+  const ddBlock=document.getElementById('deepDiveBlock');
+  ddBlock.innerHTML='';
+  dimMeta.forEach((d,i)=>{
+    const s=dScores[i], p=Math.round(s/d.max*100);
+    const bKey=p<46?'low':p<72?'mid':'high';
+    const bData=d.bands[bKey];
+    const div=document.createElement('div'); div.className='dim-deep';
+    let actionsHtml='<div class="actions-block">';
+    bData.actions.forEach((a,ai)=>{
+      actionsHtml+='<div class="action-item"><div class="action-num">'+(ai+1)+'</div><div class="action-content"><div class="action-title">'+a.title+'</div><div class="action-desc">'+a.desc+'</div></div></div>';
+    });
+    actionsHtml+='</div>';
+    div.innerHTML='<div class="dd-top"><span class="dd-name">'+d.name+'</span><span class="dd-score">'+s+' / '+d.max+'</span></div>'
+      +'<div class="dd-bar"><div class="dd-fill" style="width:'+p+'%"></div></div>'
+      +'<div class="dd-band-label">'+bData.label+' — '+bData.score_range+'</div>'
+      +'<div class="dd-insight">'+bData.insight+'</div>'
+      +'<div style="margin-top:16px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);font-weight:500;margin-bottom:4px">Your actions</div>'
+      +actionsHtml;
+    ddBlock.appendChild(div);
+  });
+
+  /* Coaching CTA */
+  document.getElementById('coachH').textContent=band.coachH;
+  document.getElementById('coachP').textContent=band.coachP;
+}
+</script>
+</body>
+</html>
