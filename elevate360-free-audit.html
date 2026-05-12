@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Leadership Audit — Elevate 360 Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0D1B3F;--navy2:#1a2d5a;--gold:#BFA062;--white:#FFFFFF;--gray-bg:#C4C4C4;--gray-card:#D8D8D8;--gray-border:#B0B0B0;--gray-dark:#6B6B6B;--text-main:#0D1B3F;--text-muted:#4A5568}
+body{background:var(--gray-bg);font-family:'DM Sans',sans-serif;color:var(--text-main)}
+.screen{display:none}
+.screen.active{display:block}
+
+/* LANDING */
+.land-top{background:var(--navy);padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+.land-brand{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--white);font-weight:500}
+.land-tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+.land-hero{background:var(--gray-bg);padding:56px 40px;text-align:center}
+.land-h{font-family:'Playfair Display',serif;font-size:36px;font-weight:500;color:var(--navy);line-height:1.2;margin-bottom:14px;max-width:480px;margin-left:auto;margin-right:auto}
+.land-rule{width:40px;height:2px;background:var(--gold);margin:20px auto}
+.land-p{font-size:15px;color:var(--navy);line-height:1.7;max-width:400px;margin:0 auto 36px;font-weight:400}
+.stat-row{display:flex;gap:1px;justify-content:center;max-width:380px;margin:0 auto 40px;background:var(--gray-border);border:1px solid var(--gray-border);border-radius:8px;overflow:hidden}
+.stat{flex:1;background:var(--white);padding:16px 12px;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);display:block;line-height:1}
+.stat-l{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-top:5px;display:block}
+.land-body{padding:36px 40px;background:var(--white);max-width:500px;margin:0 auto}
+.land-list-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
+.land-li{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px;font-size:14px;color:var(--navy);line-height:1.5}
+.land-dash{color:var(--gold);font-weight:500;flex-shrink:0}
+.land-cta-wrap{padding:24px 40px 48px;background:var(--white);max-width:500px;margin:0 auto;text-align:center}
+.land-cta{background:var(--navy);color:var(--white);border:none;border-radius:6px;padding:15px 40px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;display:inline-block}
+.land-cta:hover{background:var(--navy2)}
+.land-note{font-size:12px;color:var(--text-muted);margin-top:12px}
+
+/* CAPTURE */
+.cap{background:var(--gray-bg);padding:40px;min-height:100vh}
+.cap-card{background:var(--white);border-radius:10px;max-width:440px;margin:0 auto;padding:40px}
+.cap-ey{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.cap-h{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);font-weight:500;line-height:1.3;margin-bottom:10px}
+.cap-p{font-size:13px;color:var(--navy);line-height:1.65;margin-bottom:28px}
+.fl{margin-bottom:18px}
+.fl label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);font-weight:500;display:block;margin-bottom:7px}
+.fi{width:100%;border:1.5px solid var(--gray-border);border-radius:6px;padding:12px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--white);outline:none;transition:border 0.2s}
+.fi:focus{border-color:var(--navy)}
+.fi::placeholder{color:#999}
+.cap-btn{background:var(--navy);color:var(--white);border:none;border-radius:6px;padding:14px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;margin-top:4px;transition:background 0.2s}
+.cap-btn:hover{background:var(--navy2)}
+.priv{font-size:11px;color:var(--text-muted);text-align:center;margin-top:14px;line-height:1.6}
+
+/* QUESTIONS */
+.qs{background:var(--gray-bg);min-height:100vh}
+.qs-bar{background:var(--navy);padding:16px 32px;display:flex;align-items:center;gap:20px}
+.qs-logo{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--white);font-weight:500;white-space:nowrap}
+.prog-t{flex:1;height:3px;background:rgba(255,255,255,0.2);border-radius:2px;overflow:hidden}
+.prog-f{height:100%;background:var(--gold);border-radius:2px;transition:width 0.4s ease}
+.prog-l{font-size:11px;color:rgba(255,255,255,0.7);white-space:nowrap}
+.qs-card{background:var(--white);margin:32px auto;border-radius:10px;padding:40px;max-width:560px}
+.q-dim{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--navy);font-weight:500;margin-bottom:8px;border-left:2px solid var(--gold);padding-left:10px}
+.q-num{font-size:12px;color:var(--text-muted);margin-bottom:16px}
+.q-t{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:28px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{background:var(--white);border:1.5px solid var(--gray-card);border-radius:8px;padding:13px 18px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:all 0.18s;text-align:left;font-family:'DM Sans',sans-serif;width:100%}
+.opt:hover{border-color:var(--navy);background:#f5f7fc}
+.opt.sel{border-color:var(--navy);background:#EEF1F8}
+.opt-i{font-size:11px;color:var(--gray-dark);min-width:14px;margin-top:2px;flex-shrink:0}
+.opt.sel .opt-i{color:var(--gold)}
+.opt-t{font-size:13px;color:var(--navy);line-height:1.55}
+.opt.sel .opt-t{font-weight:500}
+.q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px}
+.btn-b{background:transparent;border:1.5px solid var(--gray-border);border-radius:6px;padding:10px 20px;font-size:12px;color:var(--navy);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.btn-b:hover{border-color:var(--navy)}
+.btn-n{background:var(--navy);border:none;border-radius:6px;padding:12px 28px;font-size:12px;font-weight:500;color:var(--white);cursor:pointer;font-family:'DM Sans',sans-serif;opacity:0.25;pointer-events:none;transition:all 0.2s}
+.btn-n.on{opacity:1;pointer-events:auto}
+.btn-n.on:hover{background:var(--navy2)}
+
+/* RESULTS */
+.res{background:var(--gray-bg);padding:32px;min-height:100vh}
+.res-card{background:var(--white);border-radius:10px;max-width:560px;margin:0 auto;overflow:hidden}
+.res-head{background:var(--navy);padding:36px 36px 32px;text-align:center}
+.res-greet{font-size:12px;color:rgba(255,255,255,0.6);letter-spacing:1px;margin-bottom:8px}
+.res-band{font-family:'Playfair Display',serif;font-size:38px;color:var(--white);font-weight:500;margin-bottom:6px}
+.res-sc{font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.res-trk{height:3px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;max-width:300px;margin:0 auto 10px}
+.res-fill{height:100%;background:var(--gold);border-radius:2px;transition:width 1s ease}
+.res-mks{display:flex;justify-content:space-between;max-width:300px;margin:0 auto;font-size:9px;color:rgba(255,255,255,0.4)}
+.res-insight{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.7;max-width:380px;margin:20px auto 0;font-weight:300}
+.res-body{padding:28px 36px 8px}
+.dim-block{border-bottom:1px solid var(--gray-card);padding:20px 0}
+.dim-block:last-child{border-bottom:none;padding-bottom:0}
+.db-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.db-name{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--navy);font-weight:500;border-left:2px solid var(--gold);padding-left:10px}
+.db-sc{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);font-weight:500}
+.db-bar{height:3px;background:var(--gray-card);border-radius:2px;overflow:hidden;margin-bottom:12px}
+.db-fill{height:100%;background:var(--gold);border-radius:2px}
+.db-txt{font-size:13px;color:var(--navy);line-height:1.65}
+.cta-strip{background:var(--gray-bg);padding:28px 36px 36px;text-align:center}
+.cta-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
+.cta-h{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-bottom:8px;font-weight:500}
+.cta-p{font-size:12px;color:var(--navy);line-height:1.65;margin-bottom:20px}
+.cta-p1{background:var(--navy);color:var(--white);border:none;border-radius:6px;padding:14px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;margin-bottom:8px;letter-spacing:0.5px;transition:background 0.2s}
+.cta-p1:hover{background:var(--navy2)}
+.cta-p2{background:transparent;color:var(--navy);border:1.5px solid var(--gray-border);border-radius:6px;padding:12px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;width:100%;transition:all 0.2s}
+.cta-p2:hover{border-color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div id="sLand" class="screen active">
+  <div class="land-top"><span class="land-brand">Elevate 360 Group</span><span class="land-tag">Free Leadership Audit</span></div>
+  <div class="land-hero">
+    <h1 class="land-h">How strong is your leadership — really?</h1>
+    <div class="land-rule"></div>
+    <p class="land-p">Five direct questions. An honest read on where you're leading well, and where you're leaving performance on the table.</p>
+    <div class="stat-row">
+      <div class="stat"><span class="stat-n">5</span><span class="stat-l">Questions</span></div>
+      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Dimensions</span></div>
+      <div class="stat"><span class="stat-n">5'</span><span class="stat-l">Your time</span></div>
+    </div>
+  </div>
+  <div class="land-body">
+    <div class="land-list-title">What you walk away with</div>
+    <div class="land-li"><span class="land-dash">—</span><span>A personalised score across three leadership dimensions</span></div>
+    <div class="land-li"><span class="land-dash">—</span><span>Honest insight into what's holding your leadership back</span></div>
+    <div class="land-li"><span class="land-dash">—</span><span>A clear sense of your most important next move</span></div>
+  </div>
+  <div class="land-cta-wrap">
+    <button class="land-cta" onclick="goTo('sCapture')">Start the Audit</button>
+    <p class="land-note">No login. No fluff. Just clarity.</p>
+  </div>
+</div>
+
+<div id="sCapture" class="screen">
+  <div class="cap">
+    <div class="cap-card">
+      <div class="cap-ey">Before we begin</div>
+      <h2 class="cap-h">Where should we send your results?</h2>
+      <p class="cap-p">We'll personalise your report with your name and send it straight to your inbox once you're done.</p>
+      <div class="fl"><label for="fn">First name</label><input class="fi" id="fn" type="text" placeholder="Your first name" autocomplete="given-name"></div>
+      <div class="fl"><label for="fe">Email address</label><input class="fi" id="fe" type="email" placeholder="Your email address" autocomplete="email"></div>
+      <button class="cap-btn" onclick="doCapture()">Continue to the Audit →</button>
+      <p class="priv">No spam. No sharing. Unsubscribe any time.<br>By continuing you agree to receive your results and occasional insights from Elevate 360.</p>
+    </div>
+  </div>
+</div>
+
+<div id="sQ" class="screen">
+  <div class="qs">
+    <div class="qs-bar">
+      <span class="qs-logo">Elevate 360</span>
+      <div class="prog-t"><div class="prog-f" id="pBar" style="width:20%"></div></div>
+      <span class="prog-l" id="pLbl">1 / 5</span>
+    </div>
+    <div class="qs-card">
+      <div class="q-dim" id="qDim"></div>
+      <div class="q-num" id="qNum"></div>
+      <div class="q-t" id="qT"></div>
+      <div class="opts" id="opts"></div>
+      <div class="q-nav">
+        <button class="btn-b" id="bBack" onclick="back()">← Back</button>
+        <button class="btn-n" id="bNext" onclick="next()">Continue →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sRes" class="screen">
+  <div class="res">
+    <div class="res-card">
+      <div class="res-head">
+        <div class="res-greet" id="rGreet">Your results</div>
+        <div class="res-band" id="rBand"></div>
+        <div class="res-sc" id="rSc"></div>
+        <div class="res-trk"><div class="res-fill" id="rFill" style="width:0%"></div></div>
+        <div class="res-mks"><span>Reactive</span><span>Developing</span><span>Scaling</span><span>High-Performance</span></div>
+        <div class="res-insight" id="rInsight"></div>
+      </div>
+      <div class="res-body" id="rBody"></div>
+      <div class="cta-strip">
+        <div class="cta-label">Your next step</div>
+        <div class="cta-h" id="ctaH">Get the full picture</div>
+        <div class="cta-p">The full 360 Leadership Diagnostic goes 21 questions deep across all three dimensions. A detailed personal report, practical actions, and a clear plan — not just a score.</div>
+        <button class="cta-p1" onclick="window.location.href='https://elevate360-group.co.uk'">Get the Full Diagnostic — £17</button>
+        <button class="cta-p2" onclick="window.location.href='mailto:info@elevate360-group.com?subject=Clarity Call Request'">Book a free clarity call →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const Qs=[
+  {dim:'Leadership Behaviour',text:'When your team hits a wall — what happens?',opts:[{s:1,t:'I step in and fix it. It\'s quicker.'},{s:2,t:'I help, but we keep hitting the same walls.'},{s:3,t:'I coach them through it — sometimes.'},{s:4,t:'They bring options. I help them choose.'},{s:5,t:'They solve it. I hear about it after.'}]},
+  {dim:'Leadership Behaviour',text:'How honest are you when someone\'s underperforming?',opts:[{s:1,t:'I avoid the conversation longer than I should.'},{s:2,t:'I raise it, but soften it so much it gets lost.'},{s:3,t:'I\'m direct — but not always consistent.'},{s:4,t:'I address it clearly and follow it through.'},{s:5,t:'People know exactly where they stand with me.'}]},
+  {dim:'Team Performance',text:'Honestly — how is your team performing right now?',opts:[{s:1,t:'We\'re firefighting more than we\'re building.'},{s:2,t:'Inconsistent. Some strong, some coasting.'},{s:3,t:'Solid — but nowhere near our ceiling.'},{s:4,t:'Strong. Hitting targets, working well together.'},{s:5,t:'High-performing. The results speak for themselves.'}]},
+  {dim:'Team Performance',text:'How much does your team\'s output depend on you?',opts:[{s:1,t:'A lot. Things stall without me.'},{s:2,t:'More than I\'d like to admit.'},{s:3,t:'Some things — but not everything.'},{s:4,t:'Most things run fine. I add value rather than drive it.'},{s:5,t:'They deliver with or without me in the room.'}]},
+  {dim:'Culture & Scalability',text:'If you stepped back for three months — what would happen?',opts:[{s:1,t:'Things fall apart. I\'m holding too much together.'},{s:2,t:'It dips. People wait for direction.'},{s:3,t:'It holds — but it doesn\'t grow.'},{s:4,t:'It runs well. People know what to do.'},{s:5,t:'It might improve. They don\'t need me to succeed.'}]}
+];
+const dimMeta={'Leadership Behaviour':{max:10,low:'You\'re doing the work, but carrying too much of it. The habits that free your team to lead themselves aren\'t locked in yet.',mid:'You show up consistently in some areas, not others. That inconsistency costs more than you realise — people mirror the patterns they see.',high:'Your leadership behaviour is a genuine strength. It\'s creating trust and setting a standard your team is rising to meet.'},'Team Performance':{max:10,low:'Performance is fragile and too dependent on you. Clarity, accountability, and autonomy are what change this — in that order.',mid:'There\'s real capability here — but there\'s a ceiling you haven\'t broken through. It\'s usually a culture issue, not a skills one.',high:'Your team delivers. That\'s not luck — it\'s the environment, expectations, and trust you\'ve built.'},'Culture & Scalability':{max:5,low:'The organisation runs on you — and that\'s a risk as much as it\'s a compliment. Growth has a hard ceiling without systems that hold without you.',mid:'The bones are good, but it still leans on people rather than design. Systemising what already works is your fastest unlock.',high:'You\'ve built something that can grow without you at the centre of it. That\'s the hardest thing to do — and you\'ve done it.'}};
+const bands=[{min:5,max:11,label:'Reactive',cta:'Start with the foundations',insight:'There are gaps pulling you back — and probably pulling your team back too. That\'s fixable. But it starts with seeing them clearly, not managing around them.'},{min:12,max:17,label:'Developing',cta:'Close the gaps that matter',insight:'You\'ve built something real. But specific patterns are holding you back from the next level. Once you see them precisely, they move faster than you\'d expect.'},{min:18,max:22,label:'Scaling',cta:'Sharpen what\'s already working',insight:'You\'re operating well. The work now is precision — finding the exact levers that take you from consistent to exceptional.'},{min:23,max:25,label:'High-Performance',cta:'Protect what you\'ve built',insight:'You\'re leading at a high level. The challenge now is sustaining it — making sure it holds without depending on you personally to keep it working.'}];
+let cur=0,ans=new Array(5).fill(null),uName='';
+function goTo(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function doCapture(){const n=document.getElementById('fn').value.trim(),e=document.getElementById('fe').value.trim();if(!n){document.getElementById('fn').focus();return}if(!e||!e.includes('@')){document.getElementById('fe').focus();return}uName=n;cur=0;ans=new Array(5).fill(null);goTo('sQ');renderQ()}
+function renderQ(){const q=Qs[cur];document.getElementById('pBar').style.width=(((cur+1)/5)*100)+'%';document.getElementById('pLbl').textContent=(cur+1)+' / 5';document.getElementById('qDim').textContent=q.dim;document.getElementById('qNum').textContent='Question '+(cur+1)+' of 5';document.getElementById('qT').textContent=q.text;const el=document.getElementById('opts');el.innerHTML='';q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='opt'+(ans[cur]===o.s?' sel':'');b.innerHTML='<span class="opt-i">'+(i+1)+'</span><span class="opt-t">'+o.t+'</span>';b.onclick=()=>pick(o.s);el.appendChild(b)});const bb=document.getElementById('bBack');bb.style.opacity=cur===0?'0.25':'1';bb.style.pointerEvents=cur===0?'none':'auto';upN()}
+function pick(s){ans[cur]=s;document.querySelectorAll('.opt').forEach((b,i)=>{b.classList.toggle('sel',Qs[cur].opts[i].s===s)});upN()}
+function upN(){const b=document.getElementById('bNext'),ok=ans[cur]!==null;b.classList.toggle('on',ok);b.textContent=cur===4?'See my results →':'Continue →'}
+function back(){if(cur>0){cur--;renderQ()}}
+function next(){if(!ans[cur])return;if(cur===4){showRes();return}cur++;renderQ()}
+function showRes(){goTo('sRes');const total=ans.reduce((a,b)=>a+(b||0),0),pct=Math.round(total/25*100),band=bands.find(b=>total>=b.min&&total<=b.max)||bands[1];document.getElementById('rGreet').textContent=uName?uName+', here\'s your snapshot':'Your leadership snapshot';document.getElementById('rBand').textContent=band.label;document.getElementById('rSc').textContent='Score: '+total+' / 25';document.getElementById('rInsight').textContent=band.insight;document.getElementById('ctaH').textContent=band.cta;setTimeout(()=>{document.getElementById('rFill').style.width=pct+'%'},200);const dScores={};Qs.forEach((q,i)=>{if(!dScores[q.dim])dScores[q.dim]=0;dScores[q.dim]+=ans[i]||0});const body=document.getElementById('rBody');body.innerHTML='';Object.keys(dimMeta).forEach(d=>{const m=dimMeta[d],s=dScores[d]||0,p=Math.round(s/m.max*100),ins=p<40?m.low:p<75?m.mid:m.high,div=document.createElement('div');div.className='dim-block';div.innerHTML='<div class="db-top"><span class="db-name">'+d+'</span><span class="db-sc">'+s+' / '+m.max+'</span></div><div class="db-bar"><div class="db-fill" style="width:'+p+'%"></div></div><div class="db-txt">'+ins+'</div>';body.appendChild(div)})}
+</script>
+</body>
+</html>
